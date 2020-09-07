@@ -4,22 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COSCU ARMY ROLE!!!!!</title>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <style>
+        #content{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 100px;
+        }
+
+        h2 {
+            font-size: 70px;
+        }
+
+        button {
+            font-size: 40px !important;
+        }
+    </style>
 </head>
 <body>
     <div class="container text-center">
         <div id="content">
-            <span id="role">
+            <h1 id="role">
 
-            </span>
+            </h1>
+            <h2 id="role-descriptor">
+
+            </h2>
             <br>
-            <span id="role-descriptor">
-
-            </span>
+            <button class="btn btn-primary" id="terminar-partida-btn" onclick="end()">Terminar juego!!!!</button>
         </div>
-        <button class="btn btn-primary" id="terminar-partida-btn" disabled>Terminar juego!!!!</button>
     </div>
+    <script>
 
+        const url = new URL(window.location.href);
+        const id = url.searchParams.get("id");
+
+        const endButton = document.getElementById("terminar-partida-btn");
+
+        function fetchStatus()  {
+            fetch("/game/status?id=" + id)
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(response) {
+                // console.log(response)
+            });
+        }
+
+        function endGame() {
+            const miInit = { 
+                method: 'POST', 
+                body: JSON.stringify({ id }),
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            };
+
+            endButton.disabled = true;
+               
+            fetch("/game/end", miInit)
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(response) {
+                endButton.disabled = false;
+                endButton.style.display = "none";
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            setInterval(fetchStatus, 2500);
+        })
+
+        let fetching = false;
+
+        const end = () => {
+            console.log("endeando")
+            
+            endGame();
+        }
+    </script>
 </body>
 </html>

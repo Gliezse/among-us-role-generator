@@ -38,5 +38,6 @@ const util = {
 }
 
 module.exports = {
-    util
+    util,
+    roles
 }
