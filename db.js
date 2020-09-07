@@ -8,8 +8,8 @@ const collections = {
 }
 
 const queries = {
-    addGame: (code, players) => {
-        collections.games.insert({ code, roles: [], players });
+    addGame: (code, players, ip) => {
+        collections.games.insert({ code, roles: [], players, ended: false, creador: ip });
     },
     gameExists: (code) => {
         const result = collections.games.findOne({ code });
@@ -38,6 +38,15 @@ const queries = {
         collections.games.update(game);
 
         return newRole;
+    },
+    endGame: (code) => {
+        const game = collections.games.findOne({ code });
+        game.ended = true;
+        collections.games.update(game);
+    },
+    gameEnded: (code) => {
+        const game = collections.games.findOne({ code });
+        return game.ended;
     }
 }
 
