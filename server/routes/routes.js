@@ -2,12 +2,15 @@ const { Router } = require("express");
 const router = Router();
 const requestIp = require("request-ip");
 
-const { queries } = require("./db");
+const { queries } = require("../db");
 
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-const { util, roles } = require("./game");
+const { util, roles } = require("../game");
+
+const apiRoutes = require("./apiRoutes");
+router.use("/api/", apiRoutes);
 
 router.get("/", (req, res) => {
     res.sendfile("./view/index.html")
