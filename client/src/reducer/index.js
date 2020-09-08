@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import general from "./general";
+import general from "reducer/general";
 
 export default combineReducers({
     general
