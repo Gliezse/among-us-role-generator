@@ -27,7 +27,7 @@ const queries = {
         const game = collections.games.findOne({ code });
         let newRole = util.getRandomRole();
 
-        if (game.roles.includes(r => r === roles.bufon) && newRole === roles.bufon) {
+        if (game.roles.includes(r => r.role === roles.bufon) && newRole === roles.bufon) {
             while (newRole === roles.bufon) {
                 newRole = util.getRandomRole();
             }
