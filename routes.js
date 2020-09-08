@@ -13,6 +13,11 @@ router.get("/", (req, res) => {
     res.sendfile("./view/index.html")
 })
 
+router.get("/getgame", async (req, res) => {
+    const { id } = req.query;
+    res.json(queries.getGame(id));
+});
+
 router.get("/rol", async (req, res) => {
     const { id, newGame, players } =  req.query;
 

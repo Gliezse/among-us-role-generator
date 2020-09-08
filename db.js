@@ -63,6 +63,9 @@ const queries = {
         } : {
             status: "ONPROGRESS"
         };
+    },
+    getGame: (code) => {
+        return collections.games.findOne({ code });
     }
 }
 
