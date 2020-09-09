@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 import { createStore } from 'redux'
 import indexReducer from "reducer/index";
 
+import "style/css/index.css";
+
 const store = createStore(
   indexReducer,
 );
