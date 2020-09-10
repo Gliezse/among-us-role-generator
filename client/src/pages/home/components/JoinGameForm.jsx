@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { compose } from "redux";
 import { withFormik, Form, Field } from 'formik';
 import Button from 'pages/components/Button';
+import TextField from 'pages/components/TextField';
 
 class JoinGameForm extends Component {
     render() { 
@@ -11,11 +12,15 @@ class JoinGameForm extends Component {
                 <span className="home-page-data-title">
                     Unirse a una sala
                 </span>
-                <Field 
-                    type="text" 
+                <Field
                     name="code"
+                    component={TextField}
+                    labelText="asdasd"
+                    maxLength={4}
+                    pattern="^/[A-Za-z]+$/"
+                    className="code-input"
                 />
-                <Button />
+                <Button type="submit" />
             </Form>
         );
     }

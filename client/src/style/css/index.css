@@ -19,7 +19,7 @@
   src: url("../fonts/montserrat/Montserrat-Regular.ttf"); }
 
 .button {
-  padding: 10px 20px; }
+  width: 150px; }
 
 /* ============================================================================================== 
 SED Innovations
@@ -150,6 +150,19 @@ header a, a:visited {
 .d-block {
   display: block; }
 
+.form-text-field input {
+  display: block;
+  margin: auto;
+  background-color: black;
+  border-radius: 20px;
+  border: double white 4px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  color: white;
+  font-family: Granstander; }
+  .form-text-field input:focus {
+    outline: none; }
+
 .home-page-content {
   text-align: center; }
   .home-page-content h1 {
@@ -166,6 +179,12 @@ header a, a:visited {
     border-radius: 20px; }
     .home-page-content .home-page-data-container .home-page-data-title {
       font-size: 20px; }
+
+.code-input {
+  font-size: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 5em; }
 
 body {
   margin: 0;

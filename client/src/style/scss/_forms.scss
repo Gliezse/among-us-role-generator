@@ -1,0 +1,22 @@
+.form-field-error {
+
+}
+
+
+.form-text-field {
+    input {
+        display: block;
+        margin: auto;
+        background-color: black;
+        border-radius: 20px;
+        border: double white 4px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        color: white;
+        font-family: $granstanderFont;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
