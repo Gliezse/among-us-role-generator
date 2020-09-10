@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, useLocation } from "react-router-dom";
-import Home from 'pages/Home';
+import Home from 'pages/home/Home';
 import Game from 'pages/Game';
 import { AnimatePresence } from 'framer-motion';
 import MainLayout from 'pages/layouts/MainLayout';
