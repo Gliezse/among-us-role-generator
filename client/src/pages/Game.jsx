@@ -1,20 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import FullPageContainer from 'pages/components/FullPageContainer';
 import { Link } from 'react-router-dom';
 
-class Home extends Component {
+class Game extends Component {
+
     render() { 
-        return (
+        return ( 
             <FullPageContainer className="flex justify-center align-items-center">
                 <div>
                     <span>
-                        coscu army
+                        Pagina juego
                     </span>
-                    <Link to="/game">Go somewhere else</Link>
+                    <Link to="/">
+                        Volver
+                    </Link>
                 </div>
             </FullPageContainer>
         );
     }
 }
-
-export default Home;
+ 
+export default Game;

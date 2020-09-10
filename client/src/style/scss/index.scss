@@ -1,6 +1,7 @@
 @import "./fonts";
 @import "./stars";
-
+@import "./container";
+@import "./util";
 
 body {
     margin: 0;
@@ -8,5 +9,9 @@ body {
     background: linear-gradient(0deg, rgba(2,0,10,1) 44%, rgba(1,4,83,1) 93%, rgba(0,0,100,1) 100%);
     height: 100vh;
     font-family: PressStart2p, sans-serif;
-    
+    color: white;
+}
+
+html {
+    overflow: hidden;
 }

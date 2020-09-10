@@ -8,6 +8,7 @@ import { createStore } from 'redux'
 import indexReducer from "reducer/index";
 
 import "style/css/index.css";
+import { BrowserRouter } from 'react-router-dom';
 
 const store = createStore(
   indexReducer,
@@ -15,7 +16,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );
