@@ -11,14 +11,14 @@ import { createBrowserHistory } from "history";
 
 import indexReducer from "reducer/index";
 import indexSaga from "saga/index";
-import { Router, BrowserRouter } from 'react-router-dom';
 
 import "style/css/index.css";
+import { ConnectedRouter } from 'connected-react-router';
 
 const sagaMiddleware = createSagaMiddleware();
 const history = createBrowserHistory();
 const store = createStore(
-  indexReducer,
+  indexReducer(history),
   applyMiddleware(
     routerMiddleware(history), 
     sagaMiddleware
@@ -29,9 +29,9 @@ sagaMiddleware.run(indexSaga);
 
 ReactDOM.render(
   <Provider store={store} >
-    <BrowserRouter>
+    <ConnectedRouter history={history} >
       <App />
-    </BrowserRouter>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 );
