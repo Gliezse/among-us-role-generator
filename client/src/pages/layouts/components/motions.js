@@ -1,3 +1,17 @@
+export const homePageVariant = {
+    in: {
+        opacity: 1,
+    },
+    out: {
+        opacity: 0,
+    }
+}
+
+export const homePageTransition = {
+    duration: .2,
+    ease: "easeIn"
+}
+
 export const pageVariant = {
     in: {
         opacity: 1,

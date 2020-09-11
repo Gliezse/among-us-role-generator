@@ -29,6 +29,7 @@ class TextField extends Component {
                         {...fieldData}
                         className={className}
                         onChange={this.handleChange}
+                        autoComplete="off"
                     />
                 </label>
                 { errors[field.name] && (

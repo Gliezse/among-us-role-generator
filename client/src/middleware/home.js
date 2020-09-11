@@ -1,5 +1,8 @@
 
 import * as api from "middleware/api";
 
-export const joinGame = (code, region) => 
-    api.postRequest("joinGame", { code, region })
+export const getGame = (code, region) => 
+    api.postRequest("getGame", { code, region })
+    
+export const createGame = (code, region) => 
+    api.postRequest("createGame", { code, region })

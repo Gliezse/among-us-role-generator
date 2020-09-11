@@ -19,8 +19,8 @@ const queries = {
         console.log(asd)
         return asd;
     },
-    gameExists: (code) => {
-        const result = collections.games.findOne({ code });
+    gameExists: (code, region) => {
+        const result = collections.games.findOne({ code, region });
         return !!result;
     },
     ipHasGeneratedRole: (code, ip) => {

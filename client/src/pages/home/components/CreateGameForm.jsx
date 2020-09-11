@@ -10,14 +10,14 @@ import { connect } from 'react-redux';
 import { selectors, actions } from "reducer/home";
 import * as Yup from "yup";
 
-class JoinGameForm extends Component {
+class CreateGameForm extends Component {
     render() { 
         const { fetching, toggleForm, isSubmitting } = this.props;
         
         return (
             <Form>
                 <span className="home-page-data-title">
-                    Join a game
+                    Create a game
                 </span>
                 <div className="code-input-cont">
                     <Field
@@ -50,12 +50,12 @@ class JoinGameForm extends Component {
                 </div>
                 <Button 
                     type="submit" 
-                    text="Enter game"
+                    text="Create game"
                     loading={isSubmitting}
                 />
                 <Button
                     type="button"
-                    text="Or try creating a new game"
+                    text="Or try joining an existing game"
                     textButton
                     className="change-game-text"
                     onClick={toggleForm}
@@ -70,7 +70,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    submit: (code, region, formikBag) => dispatch(actions.getGameRequest(code, region, formikBag)),
+    submit: (code, region, formikBag) => dispatch(actions.createGameRequest(code, region, formikBag)),
 });
  
 export default compose(
@@ -96,4 +96,4 @@ export default compose(
         },
     }),
 // @ts-ignore
-)(JoinGameForm);
+)(CreateGameForm);

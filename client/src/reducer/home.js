@@ -1,8 +1,10 @@
 export const types = {
-    JOIN_GAME_REQUEST: "home/JOIN_GAME_REQUEST",
-    JOIN_GAME_SUCCESS: "home/JOIN_GAME_SUCCESS",
-    JOIN_GAME_FAILURE: "home/JOIN_GAME_FAILURE",
-
+    GET_GAME_REQUEST: "home/GET_GAME_REQUEST",
+    GET_GAME_SUCCESS: "home/GET_GAME_SUCCESS",
+    GET_GAME_FAILURE: "home/GET_GAME_FAILURE",
+    CREATE_GAME_REQUEST: "home/CREATE_GAME_REQUEST",
+    CREATE_GAME_SUCCESS: "home/CREATE_GAME_SUCCESS",
+    CREATE_GAME_FAILURE: "home/CREATE_GAME_FAILURE",
 }
 
 const INITIAL_STATE = {
@@ -11,7 +13,8 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action = {}) => {
     switch(action.type) {
-        case types.JOIN_GAME_REQUEST:
+        case types.CREATE_GAME_REQUEST:
+        case types.GET_GAME_REQUEST:
             return {
                 ...state,
                 fetching: true,
@@ -22,12 +25,18 @@ export default (state = INITIAL_STATE, action = {}) => {
 }
 
 export const actions = {
-    joinGameRequest: (code, region, formikBag) => ({
-        type: types.JOIN_GAME_REQUEST,
+    getGameRequest: (code, region, formikBag) => ({
+        type: types.GET_GAME_REQUEST,
         code,
         region,
         formikBag
-    })
+    }),
+    createGameRequest: (code, region, formikBag) => ({
+        type: types.CREATE_GAME_REQUEST,
+        code,
+        region,
+        formikBag
+    }),
 }
 
 export const selectors = {

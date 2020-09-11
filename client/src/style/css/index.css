@@ -161,6 +161,9 @@ header a, a:visited {
 .d-block {
   display: block; }
 
+.form-text-field-error {
+  color: red; }
+
 .form-text-field input {
   display: block;
   margin: auto;
