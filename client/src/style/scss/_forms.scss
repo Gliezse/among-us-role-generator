@@ -7,7 +7,7 @@
     input {
         display: block;
         margin: auto;
-        background-color: black;
+        background-color: rgba(0, 0, 0, .5);
         border-radius: 20px;
         border: double white 4px;
         padding-top: 10px;
@@ -19,4 +19,27 @@
             outline: none;
         }
     }
+}
+
+.form-region-picker-field {
+    .region-picker-options {
+        display: flex;
+        justify-content: space-evenly;
+
+        .option {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 4px 30px;
+            font-size: 30px;
+            cursor: pointer;
+
+            &.selected {
+                border: double white 4px;
+            }
+
+            &:not(.selected) {
+                padding-top: 8px;
+            }
+        }
+    }    
 }

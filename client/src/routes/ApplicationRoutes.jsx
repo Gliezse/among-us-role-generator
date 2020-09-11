@@ -5,6 +5,7 @@ import Game from 'pages/Game';
 import { AnimatePresence } from 'framer-motion';
 import MainLayout from 'pages/layouts/MainLayout';
 
+
 const ApplicationRoutes = () => {     
     const location = useLocation()
 

@@ -8,8 +8,16 @@ const collections = {
 }
 
 const queries = {
-    addGame: (code, players, ip) => {
-        collections.games.insert({ code, roles: [], players, ended: false, creador: ip });
+    addGame: (code, region, players, ip) => {
+        console.log(code, region, players, ip)
+        const asd = collections.games.insert({ code, region, roles: [], players, ended: false, creador: ip });
+        console.log(asd)
+        return asd;
+    },
+    getGameInfo: (code, region) => {
+        const asd = collections.games.findOne({ code, region });
+        console.log(asd)
+        return asd;
     },
     gameExists: (code) => {
         const result = collections.games.findOne({ code });

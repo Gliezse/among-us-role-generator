@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-import general from "reducer/general";
+import home from "reducer/home";
 
 export default combineReducers({
-    general
+    home
 });

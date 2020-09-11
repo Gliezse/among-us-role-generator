@@ -11,7 +11,7 @@ const { util, roles } = require("../game");
 
 const apiRoutes = require("./apiRoutes");
 router.use("/api/", apiRoutes);
-
+/*
 router.get("/", (req, res) => {
     res.sendfile("./view/index.html")
 })
@@ -71,6 +71,6 @@ router.get("/game/status", (req, res) => {
     const gameStatus = queries.gameEnded(id);
 
     res.json(gameStatus)
-});
+});*/
 
 module.exports = router;

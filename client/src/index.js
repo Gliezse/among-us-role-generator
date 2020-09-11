@@ -6,6 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from "react-redux";
 import createSagaMiddleware from 'redux-saga'
+import { routerMiddleware } from "react-router-redux";
+import { createBrowserHistory } from "history";
 
 import indexReducer from "reducer/index";
 import indexSaga from "saga/index";
@@ -14,9 +16,13 @@ import { Router, BrowserRouter } from 'react-router-dom';
 import "style/css/index.css";
 
 const sagaMiddleware = createSagaMiddleware();
+const history = createBrowserHistory();
 const store = createStore(
   indexReducer,
-  applyMiddleware(sagaMiddleware)
+  applyMiddleware(
+    routerMiddleware(history), 
+    sagaMiddleware
+  )
 );
 
 sagaMiddleware.run(indexSaga);

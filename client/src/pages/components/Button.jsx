@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 class Button extends Component {
+
+    loading = () => {
+        return "Loading...";
+    }
+
     getContent = () => {
         const { loading, text } = this.props;
-        return loading ? <img src="https://www.easylaundry.app/img/load.gif" height={200} width={200} /> : "Inngg";
+        return loading ? this.loading() : text;
     }
 
     render() {
-        const { ...props } = this.props
+        const { textButton, className, type, loading, ...props } = this.props
         return (
             <div className="d-block">
-                <button {...props} className="button">{ this.getContent() }</button>
+                <button type={type !== "submit" ? type : loading && "button" || "submit"} {...props} className={classNames(
+                    "button", 
+                    { "text-only": textButton }, 
+                    className
+                )}>
+                    { this.getContent() }
+                </button>
             </div>
         )
     }

@@ -2,7 +2,7 @@
     text-align: center;
 
     h1 {
-        font-size: 60px;
+        font-size: 80px;
         font-family: $pressStartFont;
         margin-bottom: 15px;
     }
@@ -13,12 +13,12 @@
     }
 
     .home-page-data-container {
-        background-color: rgba(#002766, 1);
         padding: 20px 0;
         border-radius: 20px;
 
         .home-page-data-title {
-            font-size: 20px;
+            font-size: 50px;
+            margin-bottom: 15px;
         }
     }
 }
@@ -28,4 +28,13 @@
     text-align: center;
     text-transform: uppercase;
     width: 5em;
+}
+
+.code-input-cont, .region-cont {
+    margin: 2em 0;
+}
+
+.change-game-text {
+    margin-top: 1em;
+    font-size: 16px;
 }

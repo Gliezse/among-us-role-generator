@@ -1,5 +1,7 @@
 const { Router } = require("express");
+const { queries } = require("../db");
 const router = Router();
+const requestIp = require("request-ip");
 
 router.get("/role", async (req, res) => {
     const { id, newGame, players } =  req.query;
@@ -39,5 +41,16 @@ router.get("/role", async (req, res) => {
     res.send(htmlFile.serialize());
 });
 
+router.post("/joinGame", (req, res) => {
+    const { code, region } = req.body;
+
+    const game = queries.getGameInfo(code, region)
+    
+    if (!game) {
+        res.status(202).json({ error: "Game not found"})
+    } else {
+        res.status(200).json(game)
+    }
+})
 
 module.exports = router;

@@ -2,37 +2,97 @@ import React, { Component } from 'react';
 
 import { compose } from "redux";
 import { withFormik, Form, Field } from 'formik';
+
 import Button from 'pages/components/Button';
 import TextField from 'pages/components/TextField';
+import RegionPicker from 'pages/components/RegionPicker';
+import { connect } from 'react-redux';
+import { selectors, actions } from "reducer/home";
+import * as Yup from "yup";
 
 class JoinGameForm extends Component {
     render() { 
+        const { fetching, isSubmitting } = this.props;
+        
         return (
             <Form>
                 <span className="home-page-data-title">
-                    Unirse a una sala
+                    Join a game
                 </span>
-                <Field
-                    name="code"
-                    component={TextField}
-                    labelText="asdasd"
-                    maxLength={4}
-                    pattern="^/[A-Za-z]+$/"
-                    className="code-input"
+                <div className="code-input-cont">
+                    <Field
+                        name="code"
+                        component={TextField}
+                        labelText="Game Code"
+                        maxLength={4}
+                        pattern="^/[A-Za-z]+$/"
+                        className="code-input"
+                    />
+                </div>
+                <div className="region-cont">
+                    <Field
+                        name="region"
+                        labelText="Region"
+                        component={RegionPicker}
+                        options={[
+                            {
+                                id: "usa",
+                                value: "USA"
+                            }, {
+                                id: "eur",
+                                value: "Europe"
+                            }, {
+                                id: "asia",
+                                value: "Asia"
+                            }
+                        ]}
+                    />
+                </div>
+                <Button 
+                    type="submit" 
+                    text="Enter game"
+                    loading={isSubmitting}
                 />
-                <Button type="submit" />
+                <Button
+                    type="button"
+                    text="Or try creating a new game"
+                    textButton
+                    className="change-game-text"
+                />
             </Form>
         );
     }
 }
+
+const mapStateToProps = (state) => ({
+    fetching: selectors.getFetching(state),
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    submit: (code, region, formikBag) => dispatch(actions.joinGameRequest(code, region, formikBag)),
+});
  
 export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
     withFormik({
+        validateOnChange: false,
         validateOnBlur: false,
         mapPropsToValues: () => ({
-            code: ""
+            code: "",
+            region: {
+                id: "usa",
+                value: "USA"
+            },
         }),
-        handleSubmit: () => {},
-    })
+        validationSchema: Yup.object().shape({
+            code: Yup.string().required("Please specify a game code!").test("len", "Wrong format!", val => !!val && val.length === 4),
+        }),
+        handleSubmit: ({ code, region }, formikBag) => {
+            const { submit, isSubmitting } = formikBag.props;
+            if (!isSubmitting) {
+                submit(code, region, formikBag);
+            }
+        },
+    }),
 // @ts-ignore
 )(JoinGameForm);

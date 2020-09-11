@@ -19,7 +19,18 @@
   src: url("../fonts/montserrat/Montserrat-Regular.ttf"); }
 
 .button {
-  width: 150px; }
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 0;
+  text-decoration: underline; }
+  .button:focus {
+    outline: 0; }
+  .button:not(.text-only) {
+    border: solid white 2px;
+    border-radius: 10px;
+    padding: 10px 60px; }
 
 /* ============================================================================================== 
 SED Innovations
@@ -153,7 +164,7 @@ header a, a:visited {
 .form-text-field input {
   display: block;
   margin: auto;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   border: double white 4px;
   padding-top: 10px;
@@ -163,10 +174,24 @@ header a, a:visited {
   .form-text-field input:focus {
     outline: none; }
 
+.form-region-picker-field .region-picker-options {
+  display: flex;
+  justify-content: space-evenly; }
+  .form-region-picker-field .region-picker-options .option {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    padding: 4px 30px;
+    font-size: 30px;
+    cursor: pointer; }
+    .form-region-picker-field .region-picker-options .option.selected {
+      border: double white 4px; }
+    .form-region-picker-field .region-picker-options .option:not(.selected) {
+      padding-top: 8px; }
+
 .home-page-content {
   text-align: center; }
   .home-page-content h1 {
-    font-size: 60px;
+    font-size: 80px;
     font-family: PressStart2p;
     margin-bottom: 15px; }
   .home-page-content h3 {
@@ -174,17 +199,24 @@ header a, a:visited {
     font-family: Kumbh;
     margin-bottom: 15px; }
   .home-page-content .home-page-data-container {
-    background-color: #002766;
     padding: 20px 0;
     border-radius: 20px; }
     .home-page-content .home-page-data-container .home-page-data-title {
-      font-size: 20px; }
+      font-size: 50px;
+      margin-bottom: 15px; }
 
 .code-input {
   font-size: 50px;
   text-align: center;
   text-transform: uppercase;
   width: 5em; }
+
+.code-input-cont, .region-cont {
+  margin: 2em 0; }
+
+.change-game-text {
+  margin-top: 1em;
+  font-size: 16px; }
 
 body {
   margin: 0;
