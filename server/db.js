@@ -23,12 +23,12 @@ const queries = {
         const result = collections.games.findOne({ code, region });
         return !!result;
     },
-    ipHasGeneratedRole: (code, ip) => {
-        const game = collections.games.findOne({ code });
+    ipHasGeneratedRole: (code, region, ip) => {
+        const game = collections.games.findOne({ code, region });
         return game.roles.some(role => role.ip === ip);
     },
-    getRoleByIp: (code, ip) => {
-        const game = collections.games.findOne({ code });
+    getRoleByIp: (code, region, ip) => {
+        const game = collections.games.findOne({ code, region });
         return game.roles.find(role => role.ip === ip).role;
     },
     generateAndSaveRole: (code, ip) => {
