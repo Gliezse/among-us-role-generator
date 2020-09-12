@@ -28,7 +28,7 @@ router.post("/createGame", (req, res) => {
 })
 
 router.post("/joinGame", (req, res) => {
-    const {  }
+    // const {  }
 })
 
 module.exports = router;
