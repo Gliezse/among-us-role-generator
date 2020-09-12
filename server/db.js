@@ -9,15 +9,10 @@ const collections = {
 
 const queries = {
     addGame: (code, region, players, ip) => {
-        console.log(code, region, players, ip)
-        const asd = collections.games.insert({ code, region, roles: [], players, ended: false, creador: ip });
-        console.log(asd)
-        return asd;
+        return collections.games.insert({ code, region, roles: [], players, ended: false, creador: ip });
     },
     getGameInfo: (code, region) => {
-        const asd = collections.games.findOne({ code, region });
-        console.log(asd)
-        return asd;
+        return collections.games.findOne({ code, region });
     },
     gameExists: (code, region) => {
         const result = collections.games.findOne({ code, region });
@@ -31,11 +26,10 @@ const queries = {
         const game = collections.games.findOne({ code, region });
         return game.roles.find(role => role.ip === ip).role;
     },
-    generateAndSaveRole: (code, ip) => {
-        const game = collections.games.findOne({ code });
+    generateAndSaveRole: (code, region, ip) => {
+        const game = collections.games.findOne({ code, region });
         let newRole = util.getRandomRole();
-
-        if (game.roles.includes(r => r === roles.bufon) && newRole === roles.bufon) {
+        if (game.roles.some(r => r.role === roles.bufon) && newRole === roles.bufon) {
             while (newRole === roles.bufon) {
                 newRole = util.getRandomRole();
             }

@@ -37,14 +37,33 @@ router.post("/createGame", (req, res) => {
     if (gameExists) {
         res.status(202).json({ error: "Game already exists!"})
     } else {
-        const game = queries.addGame(code, region, 10, requestIp.getClientIp(req));
-        res.status(200).json(game)
+        const ip = requestIp.getClientIp(req);
+
+        const game = queries.addGame(code, region, 10, ip);
+        const role = queries.generateAndSaveRole(code, region, ip);
+        
+        res.status(200).json({
+            game: {
+                code: game.code, 
+                region: game.region
+            },
+            role
+        })
     }
 })
 
-router.get("/getPlayersInfo", (req, res) => {
+router.get("/gameSatus", (req, res) => {
     const { code, region } =  req.query;
+    const game = queries.getGameInfo(code, region);
 
+    if (!game) {
+        res.status(202).json({ error: "Game doesn't exist" });
+    } else {
+        const { ended } = game;
+        res.status(200).json({ 
+            status: ended ? "ended" : "onProgress"
+        })
+    }
 })
 
 router.post("/joinGame", (req, res) => {
@@ -54,11 +73,18 @@ router.post("/joinGame", (req, res) => {
     let role;
 
     if(queries.ipHasGeneratedRole(code, region, ip)) {
-        
+        role = queries.getRoleByIp(code, region, ip);
     } else {
-        role = queries.getRoleByIp(id, ip);
+        role = queries.generateAndSaveRole(code, region, ip);
     }
 
+    const game = queries.getGameInfo(code, region);
+    const { role: playerRole } = role;
+
+    res.json({ 
+        playerRole,
+        canEnd: util.canEnd(game, ip)
+    })
 })
 
 module.exports = router;

@@ -1,10 +1,10 @@
 const roles = {
     normal: "NORMAL",
-    mentiroso: "MENTIROSO",
+    /*mentiroso: "MENTIROSO",
     interrogador: "INTERROGADOR",
     acusador: "ACUSADOR",
     callado: "CALLADO",
-    persecuta: "PERSECUTA",
+    persecuta: "PERSECUTA",*/
     bufon: "BUFON",
 }
 
@@ -33,6 +33,14 @@ const util = {
                 return "Si te echan, ganas y el juego termina."
             default:
                 return "zzzz";
+        }
+    },
+    canEnd: (game, ip) => game.creator === ip,
+    validateAndFormatCode: (code) => {
+        if (code && RegExp("^[a-zA-Z]{4}$").test(code)) {
+            return code.toUpperCase();
+        } else {
+            return null;
         }
     }
 }

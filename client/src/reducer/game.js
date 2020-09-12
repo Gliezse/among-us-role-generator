@@ -1,5 +1,5 @@
 export const types = {
-    
+    ENTER_GAME: "game/ENTER_GAME",
 }
 
 const INITIAL_STATE = {
@@ -14,7 +14,11 @@ export default (state = INITIAL_STATE, action = {}) => {
 }
 
 export const actions = {
-    
+    enterGame: (game, role) => ({
+        type: types.ENTER_GAME,
+        game,
+        role
+    })
 }
 
 export const selectors = {

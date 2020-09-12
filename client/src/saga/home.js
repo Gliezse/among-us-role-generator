@@ -1,7 +1,7 @@
 import { takeLatest, call, put } from "redux-saga/effects";
 
 import * as homeApi from "middleware/home";
-import { replace } from "react-router-redux";
+import { replace, push } from "react-router-redux";
 import { types } from "reducer/home";
 
 export default [
@@ -15,7 +15,7 @@ function* joinGame({ code, region, formikBag }) {
     if (response.status != 200) {
         formikBag.setErrors({ code: response.data.error })
     } else {
-        yield put(replace("/game"))
+        yield put(push("/game"))
     }
 
     formikBag.setSubmitting(false)
@@ -27,7 +27,8 @@ function* createGame({ code, region, formikBag }) {
     if (response.status != 200) {
         formikBag.setErrors({ code: response.data.error })
     } else {
-        yield put(replace("/game"))
+        yield put()
+        yield put(push("/game"))
     }
 
     formikBag.setSubmitting(false)
