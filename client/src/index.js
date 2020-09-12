@@ -15,6 +15,10 @@ import indexSaga from "saga/index";
 import "style/css/index.css";
 import { ConnectedRouter } from 'connected-react-router';
 
+import Socket from "socket";
+import { BASE_URL } from 'middleware/api';
+import io from "socket.io-client";
+
 const sagaMiddleware = createSagaMiddleware();
 const history = createBrowserHistory();
 const store = createStore(
@@ -26,6 +30,9 @@ const store = createStore(
 );
 
 sagaMiddleware.run(indexSaga);
+
+const socket = io.connect(BASE_URL);
+socket.on("seq-num", (msg) => console.info(msg));
 
 ReactDOM.render(
   <Provider store={store} >
