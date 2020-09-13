@@ -1,0 +1,30 @@
+@font-face {
+    font-family: Teko;
+    src: url("../fonts/teko/Teko-Regular.ttf")
+}
+
+@font-face {
+    font-family: Granstander;
+    src: url("../fonts/granstander/Grandstander-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: PressStart2p;
+    src: url("../fonts/pressStart2p/PressStart2P-Regular.ttf");
+}
+
+@font-face {
+    font-family: Kumbh;
+    src: url("../fonts/kumbh/KumbhSans-Light.ttf");
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/montserrat/Montserrat-Regular.ttf");
+}
+
+$pressStartFont: PressStart2p;
+$tekoFont: Teko;
+$granstanderFont: Granstander;
+$kumbhFont: Kumbh;
+$montserratFont: Montserrat;

@@ -1,0 +1,41 @@
+{
+    "home.title": "Among Us",
+    "home.subtitle": "Roleplay Role Generator",
+    "home.unofficial": "Unofficial btw",
+    "home.join": "Join a game",
+    "home.join.code": "Game Code",
+    "home.join.region": "Region",
+    "home.join.region.usa": "USA",
+    "home.join.region.europe": "Europe",
+    "home.join.region.eur": "Europe",
+    "home.join.region.asia": "Asia",
+    "home.join.enter": "Enter game",
+    "home.join.create": "Or try creating a new game",
+
+    "home.create": "Create a game",
+    "home.create.creategame": "Create game",
+    "home.create.join": "Or try joining an existent game",
+
+    "game.your.role": "Your role is:",
+
+    "game.roles.normal": "Normal",
+    "game.roles.liar": "Liar",
+    "game.roles.interrogator": "Interrogator",
+    "game.roles.accuser": "Accuser",
+    "game.roles.quiet": "Quiet",
+    "game.roles.paranoid": "Paranoid",
+    "game.roles.buffoon": "Buffoon",
+    
+    "game.roles.normal.message": "Play normaly like any normal game",
+    "game.roles.liar.message": "You can't say the truth and must act the best you can so they don't realize",
+    "game.roles.interrogator.message": "Don't stop making questions, find the murderer",
+    "game.roles.accuser.message": "Compulsively accuse people, everyone is a murderer",
+    "game.roles.quiet.message": "You are allowed to say only 5 words per meeting, use them wisely",
+    "game.roles.paranoid.message": "Everyone thinks you are the impostor, defend yourself",
+    "game.roles.buffoon.message": "Win the game by making them eject you (And let the host know when you do)",
+
+    "game.room": "Room:",
+    "game.restart": "Reset room",
+    "game.rejoin": "Reset role",
+    "game.back.home": "Back to menu"
+}

@@ -1,0 +1,26 @@
+.role-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    justify-content: center;
+
+    .role {
+        font-family: $pressStartFont;
+        font-size: 80px;
+        margin: 20px 0 40px;
+    }
+    .room-info {
+        font-family: $granstanderFont;
+    }
+    .role-message {
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
+    .reset-game-btn-cont {
+        margin-bottom: 20px;
+        .reset-game-btn {
+            font-size: 30px;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+@import "./fonts";
+@import "./general";
+@import "./stars";
+@import "./container";
+@import "./util";
+@import "./forms";
+@import "./pages/home";
+@import "./pages/game";
+
+body {
+    margin: 0;
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,10,1) 44%, rgba(1,4,83,1) 93%, rgba(0,0,100,1) 100%);
+    height: 100vh;
+    font-family: $montserratFont;
+    color: white;
+}
+
+html {
+    overflow: hidden;
+}
