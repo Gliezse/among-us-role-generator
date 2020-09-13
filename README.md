@@ -7,11 +7,11 @@
 # English
 
 ### Table of contents
-- [App description](#descriptionEN)
-- [How to use](#usageEN)
-- [Roles and Rules](#rulesEN)
-- [Install locally](#installEN)
-- [Compatibility](#compatibilityEN)
+- [App description](#app-descriptin)
+- [How to use](#how-to-use)
+- [Roles and Rules](#roles-and-rules)
+- [Install locally](#install-locally)
+- [Compatibility](#compatibility)
 
 
 ## App Description
