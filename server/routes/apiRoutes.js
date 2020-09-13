@@ -30,7 +30,8 @@ router.post("/getGame", (req, res) => {
                 region: newRegion,
             },
             role,
-            canEnd: util.canEnd(game, ip)
+            canEnd: util.canEnd(game, ip),
+            ip
         })
     }
 })
@@ -68,7 +69,8 @@ router.post("/getStatus", (req, res) => {
         const ip = requestIp.getClientIp(req);
         const hasRole = queries.ipHasGeneratedRole(code, region, ip)
         res.status(200).json({ 
-            status: hasRole ? "restarted" : "onProgress"
+            status: hasRole ? "restarted" : "onProgress",
+            ip
         })
     }
 })
