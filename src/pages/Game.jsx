@@ -18,7 +18,10 @@ class Game extends Component {
         if (role) {
             this.setRoleTyping(getI18n(`game.roles.${role}`));
 
-            startStatusCheck();
+            setTimeout(() => {
+                startStatusCheck();   
+            }, 1000);
+            
         } else if (!code && !region) {
             back();
         }
