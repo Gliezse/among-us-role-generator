@@ -62,14 +62,14 @@ router.post("/createGame", (req, res) => {
 router.post("/getStatus", (req, res) => {
     const { code, region } =  req.body;
     const game = queries.getGameInfo(code, region);
-    
     if (!game) {
         res.status(202).json({ error: "Game doesn't exist" });
     } else {
         const ip = requestIp.getClientIp(req);
         const hasRole = queries.ipHasGeneratedRole(code, region, ip)
+        console.log(hasRole)
         res.status(200).json({ 
-            status: !hasRole ?  "onProgress" : "restarted",
+            status: !hasRole ? "restarted" : "onProgress",
             ip
         })
     }
