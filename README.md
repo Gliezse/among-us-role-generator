@@ -15,7 +15,7 @@
 
 
 ## App Description
-This app was created for the purpose of providing a remote roleplay role generating tool for the very popular game Among Us. The advantage of this being hosted in a unique server is the posibility of creating and joining rooms with your friends and having control over some unique roles (See [**buffoon**](#buffoon) role).
+This app was created for the purpose of providing a remote roleplay role generating tool for the very popular game Among Us. The advantage of this being hosted in a unique server is the posibility of creating and joining rooms with your friends and having control over some unique roles (See **buffoon** role).
 
 ## How to use
 When a ingame room is created with a 4 character code, one player (from now, the Host) should enter the app and create a new generator room with the same code and region that the ingame room has. The host will be given a role, like everyone else. Then, every other player should also enter the app and join by writting the same code and select the same region the host specified. When all players have a role, the game can begin. The host will have a **"Reset Room"** button all time, which should be clicked when the game is over (since there's no api to track games yet). When this button is clicked, the host will get a new role and all the others players will get a similar button on their screens. When clicked, this button will give them a new role for a new game. 
