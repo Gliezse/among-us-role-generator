@@ -4,8 +4,12 @@ const cors = require('cors');
 
 const routes = require("./routes/routes");
 const { util } = require("./game");
-
+const path = require('path');
 const accepts = require("accepts");
+
+
+const buildPath = path.join(__dirname, '..', 'build');
+app.use(express.static(buildPath));
 
 app.use(cors())
 app.use(express.json());
@@ -28,6 +32,8 @@ app.use((req, res, next) => {
 
     next();
 })
+
+
 app.use(routes);
 
 const PORT = process.env.PORT || 6969;

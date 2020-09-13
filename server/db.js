@@ -66,14 +66,9 @@ const queries = {
             status: "ONPROGRESS"
         };
     },
-<<<<<<< HEAD:db.js
-    getGame: (code) => {
-        return collections.games.findOne({ code });
-=======
     resetGameRoles: (game) => {
         game.roles = [];
         return collections.games.update(game);
->>>>>>> Separacion-frontend-backend:server/db.js
     }
 }
 
