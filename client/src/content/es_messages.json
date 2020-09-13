@@ -1,0 +1,41 @@
+{
+    "home.title": "Among Us",
+    "home.subtitle": "Generador de Roles para Roleplay",
+    "home.unofficial": "No oficial btw",
+    "home.join": "Unirse a un juego",
+    "home.join.code": "Código de la sala",
+    "home.join.region": "Región",
+    "home.join.region.usa": "USA",
+    "home.join.region.europe": "Europa",
+    "home.join.region.eur": "Europa",
+    "home.join.region.asia": "Asia",
+    "home.join.enter": "Entrar al juego",
+    "home.join.create": "O intenta crear un nuevo juego",
+
+    "home.create": "Crear un juego",
+    "home.create.creategame": "Crear juego",
+    "home.create.join": "O intenta unirte a un juego existente",
+
+    "game.your.role": "Tu rol es:",
+
+    "game.roles.normal": "Normal",
+    "game.roles.liar": "Mentiroso",
+    "game.roles.interrogator": "Interrogador",
+    "game.roles.accuser": "Acusador",
+    "game.roles.quiet": "Callado",
+    "game.roles.paranoid": "Paranóico",
+    "game.roles.buffoon": "Bufón",
+    
+    "game.roles.normal.message": "Juega normalmente a tu gusto",
+    "game.roles.liar.message": "No puedes decir la verdad, y debes actuar lo mejor que puedas para que no lo noten",
+    "game.roles.interrogator.message": "No dejes de hacer preguntas, hazlos escupir la verdad",
+    "game.roles.accuser.message": "Acusa a tus compañeros compulsivamente, todos son impostores",
+    "game.roles.quiet.message": "Tiene permitidas solamente 5 palabras por reunión, usalas sabiamente",
+    "game.roles.paranoid.message": "Todos piensan que eres el impostor, defiendete a toda costa",
+    "game.roles.buffoon.message": "Gana el juego haciendo que te expulsen (Y avisale al dueño de la sala cuando lo hagas)",
+
+    "game.room": "Sala:",
+    "game.restart": "Resetear sala",
+    "game.rejoin": "Resetear rol",
+    "game.back.home": "Volver al menú"
+}

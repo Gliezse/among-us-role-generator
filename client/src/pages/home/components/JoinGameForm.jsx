@@ -9,6 +9,7 @@ import RegionPicker from 'pages/components/RegionPicker';
 import { connect } from 'react-redux';
 import { selectors, actions } from "reducer/home";
 import * as Yup from "yup";
+import { getI18n } from 'util/i18n';
 
 class JoinGameForm extends Component {
     render() { 
@@ -17,13 +18,13 @@ class JoinGameForm extends Component {
         return (
             <Form>
                 <span className="home-page-data-title">
-                    Join a game
+                    {getI18n("home.join")}
                 </span>
                 <div className="code-input-cont">
                     <Field
                         name="code"
                         component={TextField}
-                        labelText="Game Code"
+                        labelText={getI18n("home.join.code")}
                         maxLength={4}
                         pattern="^/[A-Za-z]+$/"
                         className="code-input"
@@ -32,30 +33,30 @@ class JoinGameForm extends Component {
                 <div className="region-cont">
                     <Field
                         name="region"
-                        labelText="Region"
+                        labelText={getI18n("home.join.region")}
                         component={RegionPicker}
                         options={[
                             {
                                 id: "usa",
-                                value: "USA"
+                                value: getI18n("home.join.region.usa")
                             }, {
                                 id: "eur",
-                                value: "Europe"
+                                value: getI18n("home.join.region.europe")
                             }, {
                                 id: "asia",
-                                value: "Asia"
+                                value: getI18n("home.join.region.asia")
                             }
                         ]}
                     />
                 </div>
                 <Button 
                     type="submit" 
-                    text="Enter game"
+                    text={getI18n("home.join.enter")}
                     loading={isSubmitting}
                 />
                 <Button
                     type="button"
-                    text="Or try creating a new game"
+                    text={getI18n("home.join.create")}
                     textButton
                     className="change-game-text"
                     onClick={toggleForm}

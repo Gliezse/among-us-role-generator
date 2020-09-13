@@ -221,6 +221,26 @@ header a, a:visited {
   margin-top: 1em;
   font-size: 16px; }
 
+.role-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  justify-content: center; }
+  .role-info .role {
+    font-family: PressStart2p;
+    font-size: 80px;
+    margin: 20px 0 40px; }
+  .role-info .room-info {
+    font-family: Granstander; }
+  .role-info .role-message {
+    font-size: 30px;
+    margin-bottom: 40px; }
+  .role-info .reset-game-btn-cont {
+    margin-bottom: 20px; }
+    .role-info .reset-game-btn-cont .reset-game-btn {
+      font-size: 30px; }
+
 body {
   margin: 0;
   background: #020024;

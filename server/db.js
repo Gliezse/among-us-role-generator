@@ -29,8 +29,8 @@ const queries = {
     generateAndSaveRole: (code, region, ip) => {
         const game = collections.games.findOne({ code, region });
         let newRole = util.getRandomRole();
-        if (game.roles.some(r => r.role === roles.bufon) && newRole === roles.bufon) {
-            while (newRole === roles.bufon) {
+        if (game.roles.some(r => r.role === roles.boffoon) && newRole === roles.boffoon) {
+            while (newRole === roles.boffoon) {
                 newRole = util.getRandomRole();
             }
         }
@@ -65,6 +65,10 @@ const queries = {
         } : {
             status: "ONPROGRESS"
         };
+    },
+    resetGameRoles: (game) => {
+        game.roles = [];
+        return collections.games.update(game);
     }
 }
 

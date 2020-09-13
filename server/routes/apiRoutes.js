@@ -22,10 +22,15 @@ router.post("/getGame", (req, res) => {
             role = queries.generateAndSaveRole(code, region, ip);
         }
 
+        const { code: newCode, region: newRegion } = game; 
+
         res.status(200).json({
-            code,
-            region,
+            game: {
+                code: newCode,
+                region: newRegion,
+            },
             role,
+            canEnd: util.canEnd(game, ip)
         })
     }
 })
@@ -47,13 +52,14 @@ router.post("/createGame", (req, res) => {
                 code: game.code, 
                 region: game.region
             },
-            role
+            role,   
+            canEnd: util.canEnd(game, ip)
         })
     }
 })
 
-router.get("/gameSatus", (req, res) => {
-    const { code, region } =  req.query;
+router.post("/getStatus", (req, res) => {
+    const { code, region } =  req.body;
     const game = queries.getGameInfo(code, region);
 
     if (!game) {
@@ -61,7 +67,7 @@ router.get("/gameSatus", (req, res) => {
     } else {
         const { ended } = game;
         res.status(200).json({ 
-            status: ended ? "ended" : "onProgress"
+            status: ended ? "restarted" : "onProgress"
         })
     }
 })
@@ -79,12 +85,38 @@ router.post("/joinGame", (req, res) => {
     }
 
     const game = queries.getGameInfo(code, region);
-    const { role: playerRole } = role;
 
     res.json({ 
-        playerRole,
+        game: {
+            code: game.code, 
+            region: game.region
+        },
+        role,
         canEnd: util.canEnd(game, ip)
     })
 })
+
+router.post("/resetGame", (req, res) => {
+    const { code, region } = req.body;
+    const ip = requestIp.getClientIp(req);
+
+    const game = queries.getGameInfo(code, region);
+    if (!game || !util.canEnd(game, ip)) {
+        res.status(403);
+    } else {
+        queries.resetGameRoles(game);
+    }
+
+    const role = queries.generateAndSaveRole(code, region, ip);
+
+    res.status(200).json({
+        game: {
+            code: game.code, 
+            region: game.region
+        },
+        role,   
+        canEnd: util.canEnd(game, ip)
+    });
+});
 
 module.exports = router;

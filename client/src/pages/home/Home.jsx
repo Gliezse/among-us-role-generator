@@ -4,6 +4,7 @@ import JoinGameForm from 'pages/home/components/JoinGameForm';
 import CreateGameForm from 'pages/home/components/CreateGameForm';
 import { AnimatePresence } from 'framer-motion';
 import HomeTransition from 'pages/home/components/HomeTransition';
+import { getI18n } from 'util/i18n';
 
 class Home extends Component {
     forms = {
@@ -54,13 +55,13 @@ class Home extends Component {
             <FullPageContainer className="flex justify-center align-items-center">
                 <div className="home-page-content">
                     <h1>
-                        Among Us
+                        {getI18n("home.title")}
                     </h1>
                     <h3>
-                        Role Generator
+                        {getI18n("home.subtitle")}
                     </h3>
                     <h6>
-                        (Unofficial btw)
+                        {getI18n("home.unofficial")}
                     </h6>
                     <div className="home-page-data-container">
                         <AnimatePresence>
