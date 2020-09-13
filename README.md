@@ -7,7 +7,7 @@
 # English
 
 ### Table of contents
-- [App description](#app-descriptin)
+- [App description](#app-description)
 - [How to use](#how-to-use)
 - [Roles and Rules](#roles-and-rules)
 - [Install locally](#install-locally)
@@ -56,20 +56,20 @@ Major visual glitches in mobile devices, will be fixed in next version.
 # Español
 
 ### Tabla de contenidos
-- [Descripción de la aplicación](#descriptionES)
-- [Como usarla](#usageES)
-- [Roles y Reglas](#rulesES)
-- [Instalar localmente](#installES)
-- [Compatibilidad](#compatibilityES)
+- [Descripción de la aplicación](#descripción-de-la-aplicación)
+- [Cómo usarla](#cómo-usarla)
+- [Roles y Reglas](#roles-y-reglas)
+- [Instalar localmente](#instalar-localmente)
+- [Compatibilidad](#compatibilidad)
 
 
 ## Descripción de la aplicación
 Esta app fue creada con el proposito de proveer una herramienta remota de generación de roles para roleplay, apuntada al popular juego Among Us. La ventaja de que sea hosteada en un único server es que brinda la posibilidad de crear y unirse a salas con tus amigos y tener control sobre algunos roles únicos (Ver el rol de **bufón**)
 
-## Como usarla
+## Cómo usarla
 Cuando una sala dentro de Among Us es creada con un código de 4 letras, un jugador (desde ahora, el anfitrión) debe entrar a esta app y crear una nueva sala del generador con el mismo código y región que se le fue dado por el juego. Al anfitrión se le otorgará un rol, igual que a todos los demas. Luego, todos los otros jugadores también deben entrar al generador y unirse a esta sala introduciéndo el mísmo código y región. Cuando todos tengan un rol, el juego puede empezar. El anfitrion tendrá disponible un botón de **"Resetear sala"** en todo momento, el cuál deberá ser clickeado cuando el juego termine (Ya que no hay una api disponible para esto por ahora). Cuando el botón sea clickead, el anfitrión obendrá un nuevo rol y todos los demas jugadores en la sala verán un botón similar en sus pantallas el cual, al clickearlo, les dará unos nuevos roles para una nueva partida. Los roles son asignados como únicos por ip, esto va a cambiar en una actualización futura.
 
-## Roles And Reglas
+## Roles y Reglas
 Estos son los 7 roles actualmente disponibles:
 - **Normal**: Juega como cualquier otra partida.
 - **Mentiroso**: No puedes decir la verdad y debes actuar lo mejor que puedas para que no puedan distinguirlo.
