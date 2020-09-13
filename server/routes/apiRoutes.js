@@ -65,9 +65,10 @@ router.post("/getStatus", (req, res) => {
     if (!game) {
         res.status(202).json({ error: "Game doesn't exist" });
     } else {
-        const { ended } = game;
+        const ip = requestIp.getClientIp(req);
+        const hasRole = queries.ipHasGeneratedRole(code, region, ip)
         res.status(200).json({ 
-            status: ended ? "restarted" : "onProgress"
+            status: hasRole ? "restarted" : "onProgress"
         })
     }
 })
@@ -78,13 +79,17 @@ router.post("/joinGame", (req, res) => {
 
     let role;
 
+    const game = queries.getGameInfo(code, region);
+
+    if (!game) {
+        res.status(202).json({ error: "Game doesn't exist" })
+    }
+
     if(queries.ipHasGeneratedRole(code, region, ip)) {
         role = queries.getRoleByIp(code, region, ip);
     } else {
         role = queries.generateAndSaveRole(code, region, ip);
     }
-
-    const game = queries.getGameInfo(code, region);
 
     res.json({ 
         game: {

@@ -35,6 +35,9 @@ function* startCheck() {
 
     while (shouldCheck) {
         const response = yield call(gameApi.status, code, region);
+
+        console.log(response.data)
+
         if (response.status != 200) {
             shouldCheck = false;
             break;

@@ -20,7 +20,7 @@ const queries = {
     },
     ipHasGeneratedRole: (code, region, ip) => {
         const game = collections.games.findOne({ code, region });
-        return game.roles.some(role => role.ip === ip);
+        return game && game.roles.some(role => role.ip === ip);
     },
     getRoleByIp: (code, region, ip) => {
         const game = collections.games.findOne({ code, region });
