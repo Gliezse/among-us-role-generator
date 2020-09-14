@@ -29,6 +29,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start": "cd server && npm start",
+    "install-server": "cd server && npm install",
+    "dev-server": "cd server && npm run dev",
     "scss": "node-sass src/style/scss --watch --output src/style/css/"
   },
   "eslintConfig": {

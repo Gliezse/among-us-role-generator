@@ -25,17 +25,8 @@ app.use((req, res, next) => {
     }
 });
 
-app.use((req, res, next) => {
-    const langArr = accepts(req).language();
-    const containsEs = langArr.some(l => l === "es");
-    req.lang = containsEs ? "es" : "en";
-
-    next();
-})
-
-
 app.use(routes);
 
-const PORT = process.env.PORT || 6969;
+const PORT = process.env.PORT || 3030;
 
-app.listen(PORT, () => console.log("listening " + PORT));
+app.listen(PORT, () => console.log("Listening to port: " + PORT));
